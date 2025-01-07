@@ -9,7 +9,8 @@ import java.util.Queue;
  */
 public class Calculator {
     /* 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성 */
-    private Queue<Integer> resultQueue = new LinkedList<>();
+    // final 상수 선언: resultQueue 안의 요소는 변동 가능성이 있지만 resultQueue 자체는 변동 없음
+    private final Queue<Integer> resultQueue = new LinkedList<>();
 
     /**
      * 사칙연산을 수행한 후, 결과값을 반환하는 메서드 구현
@@ -64,10 +65,10 @@ public class Calculator {
         return resultQueue;
     }
 
-    /* Setter 메서드 구현 */
-    public void setResultQueue(Queue<Integer> resultQueue) {
-        this.resultQueue = resultQueue;
-    }
+    /* Setter 메서드 구현 (사용X 주석 처리) */
+//    public void setResultQueue(Queue<Integer> resultQueue) {
+//        this.resultQueue = resultQueue;
+//    }
 
     /* removeResult: 가장 먼저 저장된 데이터를 삭제하는 기능 */
     public void resetResult() {

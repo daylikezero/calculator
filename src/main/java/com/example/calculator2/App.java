@@ -27,7 +27,7 @@ public class App {
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 char operator = sc.nextLine().charAt(0);
 
-                /* 연산 수행 역할은 Calcuator 클래스가 담당 */
+                /* 연산 수행 역할은 Calculator 클래스가 담당 */
                 int result = calculator.calculate(num1, num2, operator);
 
                 System.out.println("결과 : " + result);
