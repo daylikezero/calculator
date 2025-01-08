@@ -17,11 +17,11 @@ public class ArithmeticCalculator<T extends Number> {
     private final Queue<Number> resultQueue = new LinkedList<>();
 
     public Number calculate(T num1, T num2, String operatorStr) {
-        Optional<OperatorType> operator = OperatorType.getOperatorType(operatorStr); // e1: 사칙연산 기호 오류 : throw IllegalArgumentException 발생
+        Optional<OperatorType> operator = OperatorType.getOperatorType(operatorStr);
         BigDecimal big1 = (BigDecimal) num1;
         BigDecimal big2 = (BigDecimal) num2;
         if (operator.isPresent()) {
-            // operator에 OperatorType 값이 있는 경우
+            // operator OperatorType 값이 있는 경우
             Number result = switch (operator.get()) {
                 case PLUS -> add(big1, big2); // 덧셈
                 case MINUS -> subtract(big1, big2); // 뺄셈
@@ -31,7 +31,8 @@ public class ArithmeticCalculator<T extends Number> {
             resultQueue.add(result);
             return result;
         } else {
-            // operator에 OperatorType 값이 없는 경우 (empty)
+            // operator OperatorType 값이 없는 경우 (empty)
+            // e1: 사칙연산 기호 오류 : throw IllegalArgumentException
             throw new IllegalArgumentException("잘못된 연산기호: " + operatorStr);
         }
     }
@@ -53,7 +54,7 @@ public class ArithmeticCalculator<T extends Number> {
             // e2: ArithmeticException: / by zero
             throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
         }
-        // devide(divisor, roundingMode) : 계산결과 반올림 처리
+        // devide(divisor, roundingMode) : 계산결과 소수점 반올림 처리
         return big1.divide(big2, RoundingMode.HALF_UP);
     }
 
