@@ -46,7 +46,7 @@ public class App {
             } catch (InputMismatchException e) {
                 System.out.println("잘못된 숫자 입력입니다.");
                 sc.nextLine(); // nextInt() 입력 후 버퍼의 개행문자(\n) 제거
-            }  catch (ArithmeticException | IllegalArgumentException e) {
+            } catch (ArithmeticException | IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }

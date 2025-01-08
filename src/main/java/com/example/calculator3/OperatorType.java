@@ -16,7 +16,7 @@ public enum OperatorType {
 
     public static Optional<OperatorType> getOperatorType(String operator) {
         for (OperatorType value : OperatorType.values()) {
-            if(value.operator.equals(operator)) {
+            if (value.operator.equals(operator)) {
                 return Optional.of(value);
             }
         }
