@@ -17,7 +17,7 @@ public class App {
 
     public static void main(String[] args) {
         /* Calculator 인스턴스 생성 */
-        ArithmeticCalculator<Number> calculator = new ArithmeticCalculator<>();
+        ArithmeticCalculator calculator = new ArithmeticCalculator();
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -51,7 +51,7 @@ public class App {
         }
     }
 
-    public static void command(String input, ArithmeticCalculator<Number> calculator) {
+    public static void command(String input, ArithmeticCalculator calculator) {
         Optional<CommandType> command = CommandType.getCommand(input.toUpperCase()); // 대소문자 구분 없이 입력
         if (command.isPresent()) {
             switch (command.get()) {
