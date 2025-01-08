@@ -11,12 +11,12 @@ import java.util.Queue;
 /**
  * 연산 수행 역할
  */
-public class ArithmeticCalculator<T extends Number> {
+public class ArithmeticCalculator {
     /* 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성 */
     // final 상수 선언: resultQueue 안의 요소는 변동 가능성이 있지만 resultQueue 자체는 변동 없음
     private final Queue<Number> resultQueue = new LinkedList<>();
 
-    public Number calculate(T num1, T num2, String operatorStr) {
+    public <T extends Number> Number calculate(T num1, T num2, String operatorStr) {
         Optional<OperatorType> operator = OperatorType.getOperatorType(operatorStr);
         BigDecimal big1 = (BigDecimal) num1;
         BigDecimal big2 = (BigDecimal) num2;
@@ -68,8 +68,8 @@ public class ArithmeticCalculator<T extends Number> {
         resultQueue.poll();
     }
 
-    /* compareQueue: 입력값을 받아 저장된 요소와 비교하여 큰 결과값들을 출력*/
-    public void compareQueue(T target) {
+    /* compareQueue: 입력값을 받아 저장된 요소와 비교하여 큰 결과값들을 출력 */
+    public <T extends Number> void compareQueue(T target) {
         List<Number> biggerList = resultQueue.stream()
                 .filter(num -> ((BigDecimal) num).compareTo((BigDecimal) target) > 0)
                 .toList();
