@@ -20,13 +20,13 @@ public class ArithmeticCalculator {
         BigDecimal big1 = (BigDecimal) num1;
         BigDecimal big2 = (BigDecimal) num2;
         if (operator.isPresent()) {
-            // operator OperatorType 값이 있는 경우
+            // OperatorType 값이 있는 경우
             OperatorType operatorType = operator.get();
             Number result = operatorType.calculate(big1, big2); // operatorType에 따라 계산한 후 결과를 반환
             resultQueue.add(result);
             return result;
         } else {
-            // operator OperatorType 값이 없는 경우 (empty)
+            // OperatorType 값이 없는 경우 (empty)
             // e1: 사칙연산 기호 오류 : throw IllegalArgumentException
             throw new IllegalArgumentException("잘못된 연산기호: " + operatorStr);
         }
@@ -44,9 +44,8 @@ public class ArithmeticCalculator {
 
     /* compareQueue: 입력값을 받아 저장된 요소와 비교하여 큰 결과값들을 출력 */
     public <T extends Number> void compareQueue(T target) {
-        List<Number> biggerList = resultQueue.stream()
+        System.out.println("입력값보다 더 큰 결과값: " + resultQueue.stream()
                 .filter(num -> ((BigDecimal) num).compareTo((BigDecimal) target) > 0)
-                .toList();
-        System.out.println("입력값보다 더 큰 결과값: " + biggerList);
+                .toList());
     }
 }

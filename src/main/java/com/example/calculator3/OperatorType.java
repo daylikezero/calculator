@@ -10,7 +10,7 @@ import java.util.function.BiFunction;
  */
 public enum OperatorType {
     PLUS("+", BigDecimal::add),
-    MINUS("-", BigDecimal::divide),
+    MINUS("-", BigDecimal::subtract),
     MULTIPLY("*", BigDecimal::multiply),
     DIVIDE("/", (big1, big2) -> {
         if (big2.equals(BigDecimal.ZERO)) {
