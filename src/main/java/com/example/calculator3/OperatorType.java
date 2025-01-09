@@ -11,17 +11,17 @@ public enum OperatorType {
     PLUS("+") {
         @Override
         public Number calculate(BigDecimal big1, BigDecimal big2) {
-            return big1.add(big2);
+            return big1.add(big2); // 덧셈
         }
     }, MINUS("-") {
         @Override
         public Number calculate(BigDecimal big1, BigDecimal big2) {
-            return big1.subtract(big2);
+            return big1.subtract(big2); // 뺠샘
         }
     }, MULTIPLY("*") {
         @Override
         public Number calculate(BigDecimal big1, BigDecimal big2) {
-            return big1.multiply(big2);
+            return big1.multiply(big2); // 곱셈
         }
     }, DIVIDE("/") {
         @Override
@@ -31,7 +31,7 @@ public enum OperatorType {
                 throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
             }
             // devide(divisor, roundingMode) : 계산결과 소수점 반올림 처리
-            return big1.divide(big2, RoundingMode.HALF_UP);
+            return big1.divide(big2, RoundingMode.HALF_UP); // 나눗셈
         }
     };
 
