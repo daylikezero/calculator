@@ -33,28 +33,27 @@ public class App {
 
                 System.out.println("결과 : " + result);
             } catch (InputMismatchException e) {
-                System.out.println("잘못된 숫자 입력입니다.");
+                System.out.println("[입력 오류] 잘못된 숫자 입력입니다.");
                 sc.nextLine(); // 입력 후 버퍼의 개행문자(\n) 제거
             } catch (ArithmeticException | IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                System.out.println("[입력 오류] " + e.getMessage());
             } finally {
                 // 사용자 메뉴: 계산 성공과 예외 발생에 상관 없이 수행되어야 하는 로직
                 boolean loopQuit = false;
                 while (!loopQuit) {
-                    System.out.print("더 계산하시겠습니까? (E: 종료, R: 기록 삭제, B: 큰 수 찾기, C: 계산 실행): ");
-                    loopQuit = command(sc.nextLine(), calculator);
+                    try {
+                        System.out.print("더 계산하시겠습니까? (E: 종료, R: 기록 삭제, B: 큰 수 찾기, C: 계산 실행): ");
+                        loopQuit = command(sc.nextLine(), calculator);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("[입력 오류] " + e.getMessage());
+                    }
                 }
             }
         }
     }
 
     public static boolean command(String input, ArithmeticCalculator calculator) {
-        Optional<CommandType> command = CommandType.getCommand(input.toUpperCase()); // 대소문자 구분 없이 입력
-        if (command.isPresent()) {
-            return command.get().action(calculator);
-        } else {
-            System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
-            return false;
-        }
+        CommandType command = CommandType.getCommand(input.toUpperCase()); // 대소문자 구분 없이 입력
+        return command.action(calculator);
     }
 }

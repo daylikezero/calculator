@@ -16,20 +16,13 @@ public class ArithmeticCalculator {
     private final Queue<Number> resultQueue = new LinkedList<>();
 
     public <T extends Number> Number calculate(T num1, T num2, String operatorStr) {
-        Optional<OperatorType> operator = OperatorType.getOperatorType(operatorStr);
+        OperatorType operator = OperatorType.getOperatorType(operatorStr);
         BigDecimal big1 = (BigDecimal) num1;
         BigDecimal big2 = (BigDecimal) num2;
-        if (operator.isPresent()) {
-            // OperatorType 값이 있는 경우
-            OperatorType operatorType = operator.get();
-            Number result = operatorType.calculate(big1, big2); // operatorType에 따라 계산한 후 결과를 반환
-            resultQueue.add(result);
-            return result;
-        } else {
-            // OperatorType 값이 없는 경우 (empty)
-            // e1: 사칙연산 기호 오류 : throw IllegalArgumentException
-            throw new IllegalArgumentException("잘못된 연산기호: " + operatorStr);
-        }
+
+        Number result = operator.calculate(big1, big2); // operatorType에 따라 계산한 후 결과를 반환
+        resultQueue.add(result);
+        return result;
     }
 
     /* Getter 메서드 구현 */
