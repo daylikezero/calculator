@@ -38,18 +38,19 @@ public enum CommandType {
     };
 
     private final String command;
+
     public abstract boolean action(ArithmeticCalculator calculator);
 
     CommandType(String command) {
         this.command = command;
     }
 
-    public static Optional<CommandType> getCommand(String command) {
+    public static CommandType getCommand(String command) {
         for (CommandType value : CommandType.values()) {
             if (value.command.equals(command)) {
-                return Optional.of(value);
+                return value;
             }
         }
-        return Optional.empty();
+        throw new IllegalArgumentException("잘못된 메뉴 입력: " + command);
     }
 }

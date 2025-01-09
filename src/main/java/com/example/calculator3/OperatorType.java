@@ -16,8 +16,9 @@ public enum OperatorType {
         if (big2.equals(BigDecimal.ZERO)) {
             throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
         }
-        return big1.divide(big2, RoundingMode.HALF_UP);
-    });
+        return big1.divide(big2, 3, RoundingMode.HALF_UP); // 소수점 3자리 표시, 3자리 이하 반올림 처리
+    }),
+    MOD("%", BigDecimal::remainder); // mod 연산 추가
 
     private final String operator;
     private final BiFunction<BigDecimal, BigDecimal, Number> biFunction;
@@ -27,18 +28,19 @@ public enum OperatorType {
         this.biFunction = biFunction;
     }
 
-    public static Optional<OperatorType> getOperatorType(String operator) {
+    public static OperatorType getOperatorType(String operator) {
         for (OperatorType value : OperatorType.values()) {
             if (value.operator.equals(operator)) {
-                return Optional.of(value);
+                return value;
             }
         }
-        return Optional.empty();
+        throw new IllegalArgumentException("잘못된 연산기호 입력: " + operator);
     }
 
 
     /**
      * calculate() : 외부에서 Enum 상수에 정의된 biFunction을 실행할 때 사용
+     *
      * @param num1
      * @param num2
      * @return apply(num1, num2)
