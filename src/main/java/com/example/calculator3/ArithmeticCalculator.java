@@ -1,7 +1,6 @@
 package com.example.calculator3;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -22,12 +21,8 @@ public class ArithmeticCalculator {
         BigDecimal big2 = (BigDecimal) num2;
         if (operator.isPresent()) {
             // operator OperatorType 값이 있는 경우
-            Number result = switch (operator.get()) {
-                case PLUS -> add(big1, big2); // 덧셈
-                case MINUS -> subtract(big1, big2); // 뺄셈
-                case MULTIPLY -> multiply(big1, big2); // 곱셈
-                case DIVIDE -> divide(big1, big2); // 나눗셈
-            };
+            OperatorType operatorType = operator.get();
+            Number result = operatorType.calculate(big1, big2); // operatorType에 따라 계산한 후 결과를 반환
             resultQueue.add(result);
             return result;
         } else {
@@ -35,27 +30,6 @@ public class ArithmeticCalculator {
             // e1: 사칙연산 기호 오류 : throw IllegalArgumentException
             throw new IllegalArgumentException("잘못된 연산기호: " + operatorStr);
         }
-    }
-
-    private Number add(BigDecimal big1, BigDecimal big2) {
-        return big1.add(big2);
-    }
-
-    private Number subtract(BigDecimal big1, BigDecimal big2) {
-        return big1.subtract(big2);
-    }
-
-    private Number multiply(BigDecimal big1, BigDecimal big2) {
-        return big1.multiply(big2);
-    }
-
-    private Number divide(BigDecimal big1, BigDecimal big2) {
-        if (big2.equals(BigDecimal.ZERO)) {
-            // e2: ArithmeticException: / by zero
-            throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-        }
-        // devide(divisor, roundingMode) : 계산결과 소수점 반올림 처리
-        return big1.divide(big2, RoundingMode.HALF_UP);
     }
 
     /* Getter 메서드 구현 */
