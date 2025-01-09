@@ -27,7 +27,7 @@
       <td align="center">Lv3-1</td>
       <td align="center">Lv3-2<br>Lv3-3</td>
       <td align="center">Lv3 리펙토링</td>
-      <td align="center">Lv3 리펙토링</td>
+      <td align="center">Lv3 리펙토링<br>통합테스트</td>
     </tr>
   </tbody>
 </table>
