@@ -6,7 +6,7 @@
 🌳 `Lv3` Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기 <br>
 
 ## 🗓️ 개발 기간
-2025.01.02(목) ~ 2025.01.09(목)
+2025.01.02(목) ~ 2025.01.10(금)
 <table>
   <tbody>
     <tr>
@@ -18,6 +18,7 @@
       <td align="center">01-07</td>
       <td align="center">01-08</td>
       <td align="center">01-09</td>
+      <td align="center">01-10</td>
     </tr>
     <tr>
       <td align="center">Lv1<br>&nbsp;</td>
@@ -27,7 +28,8 @@
       <td align="center">Lv3-1</td>
       <td align="center">Lv3-2<br>Lv3-3</td>
       <td align="center">Lv3 리펙토링</td>
-      <td align="center">Lv3 리펙토링<br>통합테스트</td>
+      <td align="center">Lv3 리펙토링</td>
+      <td align="center">통합테스트<br>최종검토</td>
     </tr>
   </tbody>
 </table>
@@ -42,5 +44,5 @@
 - [계산기3_트러블슈팅-ENUM](https://velog.io/@daylikezero/TIL-2025-01-07)
 - [계산기3_트러블슈팅-Generic](https://velog.io/@daylikezero/TIL-2025-01-08)
 - [계산기3_리펙토링](https://velog.io/@daylikezero/TIL-2025-01-09)
-
+- [계산기3_예외처리](https://velog.io/@daylikezero/TIL-2025-01-10)
 - [TIL_Java_문법](https://velog.io/@daylikezero/TIL-2025-01-06)
