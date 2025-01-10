@@ -2,8 +2,6 @@ package com.example.calculator3;
 
 import java.math.BigDecimal;
 import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
 import java.util.Queue;
 
 
