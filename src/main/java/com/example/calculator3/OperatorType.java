@@ -2,7 +2,6 @@ package com.example.calculator3;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Optional;
 import java.util.function.BiFunction;
 
 /**

@@ -1,7 +1,6 @@
 package com.example.calculator3;
 
 import java.util.InputMismatchException;
-import java.util.Optional;
 import java.util.Scanner;
 
 /**
@@ -53,7 +52,7 @@ public class App {
     }
 
     public static boolean command(String input, ArithmeticCalculator calculator) {
-        CommandType command = CommandType.getCommand(input.toUpperCase()); // 대소문자 구분 없이 입력
-        return command.action(calculator);
+        // 대소문자 구분 없이 입력
+        return CommandType.getCommand(input.toUpperCase()).action(calculator);
     }
 }
