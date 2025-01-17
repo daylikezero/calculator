@@ -2,7 +2,7 @@
 [CH 2 계산기 과제](https://teamsparta.notion.site/Spring-5-CH-2-16f2dc3ef514805d80b7eb142c4ba79d)
 <br><br>
 🌱 `Lv1` 클래스 없이 기본적인 연산을 수행할 수 있는 계산기 만들기 <br>
-🌷 `Lv2` 클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기 <br>
+🪴 `Lv2` 클래스를 적용해 기본적인 연산을 수행할 수 있는 계산기 만들기 <br>
 🌳 `Lv3` Enum, 제네릭, 람다 & 스트림을 이해한 계산기 만들기 <br>
 
 ## 🗓️ 개발 기간
@@ -46,3 +46,6 @@
 - [계산기3_리펙토링](https://velog.io/@daylikezero/TIL-2025-01-09)
 - [계산기3_예외처리](https://velog.io/@daylikezero/TIL-2025-01-10)
 - [TIL_Java_문법](https://velog.io/@daylikezero/TIL-2025-01-06)
+
+## 💭 회고
+- [WIL_2주차_과제](https://velog.io/@daylikezero/WIL-2025-01-10)
