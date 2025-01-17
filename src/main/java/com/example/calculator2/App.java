@@ -28,7 +28,7 @@ public class App {
                 char operator = sc.nextLine().charAt(0);
 
                 /* 연산 수행 역할은 Calculator 클래스가 담당 */
-                int result = calculator.calculate(num1, num2, operator);
+                double result = calculator.calculate(num1, num2, operator);
 
                 System.out.println("결과 : " + result);
                 System.out.println("더 계산하시겠습니까? (exit 입력 시 종료) ");

@@ -24,32 +24,41 @@ public class AppRef {
         while (true) {
             try {
                 loopQuit = false;
-                System.out.print("첫 번째 숫자를 입력하세요: ");
+                System.out.print("\n첫 번째 숫자를 입력하세요: ");
                 int num1 = sc.nextInt();
+                if (num1 < 0) {
+                    System.out.println("[입력 오류] 양의 정수만 입력하세요.: " + num1);
+                    System.out.println("프로그램을 재시작합니다...");
+                    continue;
+                }
                 System.out.print("두 번째 숫자를 입력하세요: ");
                 int num2 = sc.nextInt();
+                if (num2 < 0) {
+                    System.out.println("[입력 오류] 양의 정수만 입력하세요.: " + num2);
+                    System.out.println("프로그램을 재시작합니다...");
+                    continue;
+                }
                 sc.nextLine(); // nextInt() 입력 후 버퍼의 개행문자(\n) 제거
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 char operator = sc.nextLine().charAt(0);
 
                 /* 연산 수행 역할은 Calculator 클래스가 담당 */
-                int result = calculator.calculate(num1, num2, operator);
+                double result = calculator.calculate(num1, num2, operator);
 
-                System.out.println("결과 : " + result);
+                System.out.println("\n결과 : " + result);
 
             } catch (InputMismatchException e) {
                 System.out.println("잘못된 숫자 입력입니다.");
                 sc.nextLine(); // nextInt() 입력 후 버퍼의 개행문자(\n) 제거
             } catch (ArithmeticException | IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            } finally {
-                // 사용자 메뉴: 계산 성공과 예외 발생에 상관 없이 수행되어야 하는 로직
-                while (!loopQuit) {
-                    System.out.println("더 계산하시겠습니까? (exit: 입력 시 종료 ");
-                    System.out.println("remove: 가장 오래된 결과 삭제");
-                    System.out.print("그 외: 프로그램을 계속 실행): ");
-                    command(sc.nextLine(), calculator);
-                }
+                System.out.println("[입력 오류]" + e.getMessage());
+            }
+
+            while (!loopQuit) {
+                System.out.println("\n더 계산하시겠습니까? (exit: 입력 시 종료 ");
+                System.out.println("remove: 가장 오래된 결과 삭제");
+                System.out.print("그 외: 프로그램을 계속 실행): ");
+                command(sc.nextLine(), calculator);
             }
         }
     }
