@@ -10,15 +10,15 @@ import java.util.Queue;
 public class Calculator {
     /* 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성 */
     // final 상수 선언: resultQueue 안의 요소는 변동 가능성이 있지만 resultQueue 자체는 변동 없음
-    private final Queue<Integer> resultQueue = new LinkedList<>();
+    private final Queue<Double> resultQueue = new LinkedList<>();
 
     /**
      * 사칙연산을 수행한 후, 결과값을 반환하는 메서드 구현
      * 1) 양의 정수 2개(0 포함)와 연산 기호를 매개변수로 받아 사칙연산 (+,-,*,%) 기능을 수행한 후
      * 2) 결과값을 반환하는 메서드와 연산 결과를 저장하는 컬렉션 타입 필드를 가진 클래스를 생성
      **/
-    public int calculate(int num1, int num2, char operator) {
-        int result = 0;
+    public double calculate(int num1, int num2, char operator) {
+        double result = 0;
         switch (operator) {
             case '+':
                 result = add(num1, num2); // 덧셈
@@ -52,16 +52,16 @@ public class Calculator {
         return num1 * num2;
     }
 
-    private int divide(int num1, int num2) {
+    private double divide(int num1, int num2) {
         if (num2 == 0) {
             // e2: ArithmeticException: / by zero
             throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
         }
-        return num1 / num2;
+        return (double) num1 / num2;
     }
 
     /* Getter 메서드 구현 */
-    public Queue<Integer> getResultQueue() {
+    public Queue<Double> getResultQueue() {
         return resultQueue;
     }
 
